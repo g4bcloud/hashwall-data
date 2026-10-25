@@ -1,0 +1,50 @@
+name: Tally spam reports
+
+# Promotes community-reported numbers into data/blocklist.json once they cross
+# the report threshold. Runs on a schedule (hourly) and whenever reports change.
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly, offset to avoid the top-of-hour stampede
+  push:
+    paths:
+      - "reports/**"
+      - "data/allowlist.json"
+      - "scripts/tally.py"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tally
+  cancel-in-progress: false
+
+jobs:
+  tally:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: |
+          python3 scripts/test_tally.py
+          python3 scripts/test_ingest.py
+
+      - name: Tally reports into blocklist
+        run: python3 scripts/tally.py --root .
+
+      - name: Commit updated blocklist
+        run: |
+          if git diff --quiet -- data/blocklist.json; then
+            echo "No change to blocklist."
+            exit 0
+          fi
+          git config user.name  "hashwall-tally-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/blocklist.json
+          git commit -m "chore(blocklist): tally update [skip ci]"
+          git push

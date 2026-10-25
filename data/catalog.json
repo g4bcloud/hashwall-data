@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "lists": [
+    {
+      "id": "fr-telemarketing-prefixes",
+      "name": "France: telemarketing prefixes",
+      "description": "The 12 ranges (0162, 0163, 0270, 0271, 0377, 0378, 0424, 0425, 0568, 0569, 0948, 0949) reported as assigned to telemarketing platforms.",
+      "region": "FR",
+      "url": "https://cdn.jsdelivr.net/gh/g4bcloud/hashwall-data@main/data/lists/fr-telemarketing.txt",
+      "maintainer": "Hashwall",
+      "approxNumbers": 12000000,
+      "thirdParty": false,
+      "caution": "Telemarketing was banned in France on 11 August 2026 and the ranges may change."
+    },
+    {
+      "id": "begone-fr-telemarketing",
+      "name": "Begone FR: telemarketing",
+      "description": "The same 12 telemarketing ranges, from the Begone France lists.",
+      "region": "FR",
+      "url": "https://raw.githubusercontent.com/Fluyd-Cloud/Begone/refs/heads/main/dist/begone-fr-demarchage.xml",
+      "maintainer": "Fluyd-Cloud",
+      "approxNumbers": 12000000,
+      "thirdParty": true,
+      "caution": null
+    },
+    {
+      "id": "begone-fr-voip",
+      "name": "Begone FR: VoIP operators",
+      "description": "Number blocks of internet-telephony operators often used by call centres (Destiny, BJT Partners, OnOff, Aircall, Ubicentrex and others).",
+      "region": "FR",
+      "url": "https://raw.githubusercontent.com/Fluyd-Cloud/Begone/refs/heads/main/dist/begone-fr-voip.xml",
+      "maintainer": "Fluyd-Cloud",
+      "approxNumbers": 5375000,
+      "thirdParty": true,
+      "caution": "Blocks every number of these operators, including legitimate businesses that use them."
+    },
+    {
+      "id": "begone-fr-prepaid",
+      "name": "Begone FR: prepaid mobile",
+      "description": "Mobile numbers of a prepaid operator (Lyca).",
+      "region": "FR",
+      "url": "https://raw.githubusercontent.com/Fluyd-Cloud/Begone/refs/heads/main/dist/begone-fr-prepaid.xml",
+      "maintainer": "Fluyd-Cloud",
+      "approxNumbers": 4100000,
+      "thirdParty": true,
+      "caution": "Blocks all of this operator's customers, including real people who call you."
+    },
+    {
+      "id": "begone-fr-full",
+      "name": "Begone FR: everything",
+      "description": "Telemarketing, VoIP and prepaid lists combined.",
+      "region": "FR",
+      "url": "https://raw.githubusercontent.com/Fluyd-Cloud/Begone/refs/heads/main/dist/begone-fr-full.xml",
+      "maintainer": "Fluyd-Cloud",
+      "approxNumbers": 21198000,
+      "thirdParty": true,
+      "caution": "Very broad: it also blocks legitimate callers on the VoIP and prepaid ranges."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "comment": "Numbers here are NEVER promoted to the community blocklist, regardless of report count. E.164 format. Used to protect legitimate numbers from mass-report abuse.",
+  "numbers": []
+}

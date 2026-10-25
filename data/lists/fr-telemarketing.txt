@@ -1,0 +1,19 @@
+// name: France: telemarketing prefixes
+// description: Ranges reported as assigned to telemarketing platforms in France (ARCEP, 2023).
+// maintainer: Hashwall
+//
+// Source: widely republished by consumer sites; the ARCEP page that used to list them is being
+// updated after telemarketing was banned in France on 11 August 2026. Check arcep.fr for the
+// current ranges before relying on this list.
++33162######
++33163######
++33270######
++33271######
++33377######
++33378######
++33424######
++33425######
++33568######
++33569######
++33948######
++33949######

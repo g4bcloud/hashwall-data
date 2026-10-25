@@ -1,0 +1,59 @@
+name: Ingest spam report
+
+# The iOS app submits a spam report by opening a GitHub Issue with the
+# "spam-report" label and a JSON body:
+#   {"number": "+33123456789", "reporter": "<anon-uuid>", "ts": "<iso8601>"}
+# This workflow validates it, writes reports/<number>-<hash>.json, closes the issue, and lets
+# the tally workflow (triggered by the reports/ push) promote it once the threshold is reached.
+# The repository is public, so only a one-way hash of the reporter id and the day are stored.
+# NOTE: this Issue path is a stopgap for testing. The Issue itself still holds the raw id.
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: ingest-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    if: contains(github.event.issue.labels.*.name, 'spam-report')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Parse and store report
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: python3 scripts/ingest_report.py
+
+      - name: Commit report
+        run: |
+          if git diff --quiet -- reports/; then
+            echo "No new report file."
+            exit 0
+          fi
+          git config user.name  "hashwall-tally-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add reports/
+          git commit -m "report: new submission via issue #${{ github.event.issue.number }} [skip ci]"
+          git push
+
+      - name: Close the issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: "closed",
+            });
