@@ -96,6 +96,47 @@ def test_build_blocklist_shape():
     assert bl["generated_at"].endswith("Z")
 
 
+def _blocklist(root: Path):
+    return json.loads((root / "data" / "blocklist.json").read_text(encoding="utf-8"))
+
+
+def test_main_does_not_rewrite_an_unchanged_blocklist(tmp_path):
+    # Regression: every scheduled run used to refresh `generated_at`, so the workflow committed
+    # a timestamp-only change every hour.
+    _write(tmp_path / "data" / "blocklist.json",
+           {"version": 1, "generated_at": "1970-01-01T00:00:00Z", "threshold": 3, "count": 0, "numbers": []})
+    before = (tmp_path / "data" / "blocklist.json").read_bytes()
+    assert tally.main(["--root", str(tmp_path)]) == 0
+    assert (tmp_path / "data" / "blocklist.json").read_bytes() == before
+
+
+def test_main_writes_when_a_number_is_promoted(tmp_path):
+    _write(tmp_path / "data" / "blocklist.json",
+           {"version": 1, "generated_at": "1970-01-01T00:00:00Z", "threshold": 3, "count": 0, "numbers": []})
+    for i in range(3):
+        _write(tmp_path / "reports" / f"{i}.json", _report("+33123456789", f"u{i}"))
+    assert tally.main(["--root", str(tmp_path)]) == 0
+    result = _blocklist(tmp_path)
+    assert result["numbers"] == ["+33123456789"] and result["count"] == 1
+    assert result["generated_at"] != "1970-01-01T00:00:00Z"
+
+
+def test_main_is_a_no_op_on_the_second_run(tmp_path):
+    _write(tmp_path / "data" / "blocklist.json",
+           {"version": 1, "generated_at": "1970-01-01T00:00:00Z", "threshold": 3, "count": 0, "numbers": []})
+    for i in range(3):
+        _write(tmp_path / "reports" / f"{i}.json", _report("+33123456789", f"u{i}"))
+    tally.main(["--root", str(tmp_path)])
+    after_first = (tmp_path / "data" / "blocklist.json").read_bytes()
+    tally.main(["--root", str(tmp_path)])
+    assert (tmp_path / "data" / "blocklist.json").read_bytes() == after_first
+
+
+def test_main_creates_the_blocklist_when_missing(tmp_path):
+    assert tally.main(["--root", str(tmp_path)]) == 0
+    assert _blocklist(tmp_path)["numbers"] == []
+
+
 # ---------------------------------------------------------------------------
 # Stdlib fallback: run `python3 scripts/test_tally.py` with no pytest installed.
 # pytest, if present, ignores everything below and uses its own tmp_path fixture.

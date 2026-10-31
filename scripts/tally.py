@@ -119,13 +119,19 @@ def main(argv: list[str] | None = None) -> int:
     numbers = tally(reports_dir, allowlist, threshold)
     new_blocklist = build_blocklist(numbers, threshold)
 
-    changed = numbers != current.get("numbers", [])
+    changed = numbers != current.get("numbers", []) or threshold != current.get("threshold")
 
     if args.check:
         print(f"{'CHANGED' if changed else 'unchanged'}: {len(numbers)} number(s) at threshold {threshold}")
         return 1 if changed else 0
 
     out_path = data_dir / "blocklist.json"
+    # Leave the file alone when nothing changed. Rewriting it would only refresh `generated_at`,
+    # which the scheduled workflow would then commit every hour for no reason.
+    if not changed and out_path.exists():
+        print(f"unchanged: {len(numbers)} number(s) at threshold {threshold}; file left as is")
+        return 0
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8") as f:
         json.dump(new_blocklist, f, indent=2, ensure_ascii=False)
