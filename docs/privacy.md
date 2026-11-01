@@ -52,8 +52,12 @@ people report it.
 
 ## Purchases
 
-Plans are bought through the App Store. Apple processes payment; Hashwall never sees your
+The unlock is bought through the App Store. Apple processes payment; Hashwall never sees your
 payment details. The app receives only a signed confirmation that a purchase happened.
+
+To run the 30-day free trial, the app stores the date you first opened it on your device (in the
+iOS Keychain, so reinstalling doesn't restart the trial) and reads the date you first downloaded
+it from Apple's signed record. Neither leaves your device.
 
 ## Your choices
 

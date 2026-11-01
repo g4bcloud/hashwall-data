@@ -16,14 +16,21 @@ community spam list that is maintained in the open.
 
 ## Free features
 
-Blocking, allowing and naming your own numbers and ranges is free and does not require a plan.
+Blocking, allowing and naming your own numbers and ranges is free and does not require a
+purchase.
 
-## Plans
+## Free trial and unlock
 
-Plans unlock downloading the community list and reporting spam numbers for a fixed period of
-1, 4 or 10 years. They are **one-time purchases that do not renew automatically**; nothing needs
-to be cancelled. If a plan ends, the last community list you downloaded keeps working, but it
-will no longer be updated, and you cannot send reports.
+For the first 30 days after you first install Hashwall, you can follow, update and import lists
+and report spam for free. There is nothing to cancel, and you are never charged automatically.
+
+After the trial, a **one-time purchase** ("Unlock") keeps these features. It is not a
+subscription. If you don't buy it, the lists you downloaded keep blocking calls, but they stop
+updating, and you can't add lists or send reports.
+
+The unlock covers the app as long as it is available. Hashwall is a small independent project
+and may stop being offered on the App Store; an app you already installed may keep working for a
+while after that, but it won't be updated.
 
 Payment, taxes and refunds are handled by Apple under the App Store terms.
 
