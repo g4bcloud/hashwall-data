@@ -6,6 +6,12 @@ builds them from community reports, and the legal pages. The Hashwall app itself
 Everything that decides which numbers end up on the community list is in this repository, so
 anyone can check how a number got there.
 
+## Status
+
+Early development, not yet on the App Store. The community list is currently empty: it only
+fills once the reporting path below actually accepts reports from the general public, which it
+doesn't yet.
+
 ## What's here
 
 | Path | What it is |
@@ -41,9 +47,14 @@ To suggest a list for the in-app catalog, open an issue or a pull request that e
 
 ## Reporting
 
-The Hashwall app will send reports through a small service (not built yet). Until then,
-`ingest.yml` accepts a labelled GitHub Issue for testing only, and outside contributors can't
-apply labels, so it doesn't accept public submissions.
+The app opens a pre-filled GitHub Issue (labelled `spam-report`) instead of holding a GitHub
+token itself. **This only works for people with write access to this repository today.** GitHub
+requires permission to add a label before its `labels` URL query parameter takes effect, and
+returns a 404 for the whole request otherwise ([GitHub's docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-from-a-url-query)).
+Because `ingest.yml` only processes Issues that already carry that label, an outside
+contributor's attempt never reaches it, so this still doesn't accept public submissions. Fixing
+that needs either a trigger that doesn't depend on a label, or the planned small server that
+files reports on the person's behalf.
 
 ## Privacy
 
