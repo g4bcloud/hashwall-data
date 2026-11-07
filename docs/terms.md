@@ -7,7 +7,7 @@ title: Terms of Use
 > **DRAFT / PLACEHOLDER.** Not reviewed by a lawyer. Review and complete before publishing the
 > app (provider identity, governing law, consumer-rights wording for your countries).
 
-_Last updated: 2026-10-11_
+_Last updated: 2026-11-08_
 
 ## What Hashwall is
 
@@ -23,6 +23,10 @@ purchase.
 
 For the first 30 days after you first install Hashwall, you can follow, update and import lists
 and report spam for free. There is nothing to cancel, and you are never charged automatically.
+
+> _As of today, reporting a number opens a GitHub Issue that only this project's maintainers
+> can actually file; the general public can't yet submit a report this way. See the
+> [repository README](https://github.com/g4bcloud/hashwall-data#reporting)._
 
 After the trial, a **one-time purchase** ("Unlock") keeps these features. It is not a
 subscription. If you don't buy it, the lists you downloaded keep blocking calls, but they stop

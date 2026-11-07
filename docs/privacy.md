@@ -8,7 +8,7 @@ title: Privacy Policy
 > been reviewed by a lawyer and must be reviewed and completed (controller identity, contact
 > address, legal basis, retention) before the app is published.
 
-_Last updated: 2026-11-07_
+_Last updated: 2026-11-08_
 
 ## The short version
 
@@ -36,6 +36,12 @@ from people you trust.
 repository; you tap "Submit new issue" there yourself to finish sending it. This is a deliberate
 stopgap: Hashwall has no server of its own, and a token that could file Issues on your behalf
 cannot safely live inside the app.
+
+**As of today, this only works for this project's maintainers.** GitHub won't let someone
+without write access to the repository finish filing the Issue, so the general public can't
+report a number yet. See the
+[repository README](https://github.com/g4bcloud/hashwall-data#reporting) for why, and the plan
+to fix it.
 
 The pre-filled Issue contains:
 
