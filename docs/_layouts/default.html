@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.title != site.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="{{ "/" | relative_url }}">
+      <span class="brand-mark" aria-hidden="true"></span>Hashwall
+    </a>
+    <nav class="topnav" aria-label="Site">
+      <a href="{{ "/" | relative_url }}"{% if page.url == "/" %} class="is-active"{% endif %}>Home</a>
+      <a href="{{ "/privacy" | relative_url }}"{% if page.url contains "privacy" %} class="is-active"{% endif %}>Privacy</a>
+      <a href="{{ "/terms" | relative_url }}"{% if page.url contains "terms" %} class="is-active"{% endif %}>Terms</a>
+      <a href="{{ "/list-format" | relative_url }}"{% if page.url contains "list-format" %} class="is-active"{% endif %}>List format</a>
+      <a href="https://github.com/g4bcloud/hashwall-data" class="topnav-cta">GitHub &#8599;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <div class="card">
+    {{ content }}
+  </div>
+</main>
+
+<footer class="sitefooter">
+  <div class="sitefooter-inner">
+    <span>hashwall-data is maintained by <a href="https://github.com/g4bcloud">g4bcloud</a>.</span>
+    <span>Hosted on GitHub Pages.</span>
+  </div>
+</footer>
+</body>
+</html>

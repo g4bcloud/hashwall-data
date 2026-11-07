@@ -1,3 +1,11 @@
-theme: jekyll-theme-cayman
 title: Hashwall
 description: Open, auditable call blocking for iPhone
+markdown: kramdown
+
+# Custom layout + CSS (no built-in theme) so every page picks up _layouts/default.html
+# without needing a `layout:` line in its own front matter.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
