@@ -4,9 +4,7 @@ title: Privacy Policy
 
 # Privacy Policy
 
-> **DRAFT / PLACEHOLDER.** This text describes how Hashwall is designed to work. It has not
-> been reviewed by a lawyer and must be reviewed and completed (controller identity, contact
-> address, legal basis, retention) before the app is published.
+> **Not reviewed by a lawyer.** This text describes how Hashwall is designed to work.
 
 _Last updated: 2026-11-08_
 
@@ -82,7 +80,7 @@ it from Apple's signed record. Neither leaves your device.
   cannot tell which stored reports are yours from that data alone. If you reported through
   GitHub, the Issue you filed stays visible in your own GitHub account's history, like any
   GitHub Issue.
-- [Contact placeholder: add address] to ask about removing a specific number from the public list.
+- To ask about removing a specific number from the public list, [open a GitHub issue](https://github.com/g4bcloud/hashwall-data/issues). Don't post personal details in a public issue.
 
 ## Children
 
@@ -94,4 +92,4 @@ Changes to this policy will be published on this page with a new date.
 
 ## Contact
 
-[Contact placeholder: add email address]
+Questions about this policy go to the project's [GitHub Issues](https://github.com/g4bcloud/hashwall-data/issues).

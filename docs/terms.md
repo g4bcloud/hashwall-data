@@ -4,8 +4,7 @@ title: Terms of Use
 
 # Terms of Use
 
-> **DRAFT / PLACEHOLDER.** Not reviewed by a lawyer. Review and complete before publishing the
-> app (provider identity, governing law, consumer-rights wording for your countries).
+> **Not reviewed by a lawyer.** This text describes the terms the app is designed around.
 
 _Last updated: 2026-11-08_
 
@@ -65,4 +64,4 @@ overrides any list.
 
 ## Contact
 
-[Contact placeholder: add email address]
+Questions about these terms go to the project's [GitHub Issues](https://github.com/g4bcloud/hashwall-data/issues).

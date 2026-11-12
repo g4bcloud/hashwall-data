@@ -25,11 +25,16 @@ list blocks lives here instead, so anyone can check how a number got there.
 
 ## Status
 
-Hashwall is early in development and not yet on the App Store. The community list is currently
-empty: reporting a number opens a GitHub Issue, which today only works for this project's
-maintainers, not the general public. See the
-[repository README](https://github.com/g4bcloud/hashwall-data#reporting) for the current
-limitation and the plan to fix it.
+Hashwall is early in development and not yet on the App Store. The community list is empty, and
+it stays empty until reports can come from the public. Reporting opens a pre-filled GitHub Issue,
+but that only works for people with write access to the repository today. See the
+[repository README](https://github.com/g4bcloud/hashwall-data#reporting) for the fix in progress.
+
+## Price
+
+Hashwall costs €1.99, paid once through the App Store. There is no subscription. Every new
+install gets a 30-day free trial of the full app first. Blocking your own numbers and ranges is
+free, with or without the purchase.
 
 ## Learn more
 
