@@ -55,6 +55,39 @@
       "approxNumbers": 21198000,
       "thirdParty": true,
       "caution": "Very broad: it also blocks legitimate callers on the VoIP and prepaid ranges."
+    },
+    {
+      "id": "ch-local-ch-patterns",
+      "name": "Switzerland: telemarketing ranges",
+      "description": "Number ranges where many telemarketing numbers are seen, plus single numbers outside them. Built from local.ch's list of verified telemarketing numbers.",
+      "region": "CH",
+      "url": "https://raw.githubusercontent.com/chrismeunier/begone-swiss-spam-blacklist/main/begone_list.xml",
+      "maintainer": "chrismeunier",
+      "approxNumbers": 17000,
+      "thirdParty": true,
+      "caution": "Blocks whole ranges, so it can also block a few real numbers inside them."
+    },
+    {
+      "id": "ch-local-ch-numbers",
+      "name": "Switzerland: listed telemarketing numbers",
+      "description": "Exactly the numbers listed as telemarketing on local.ch, with no ranges.",
+      "region": "CH",
+      "url": "https://raw.githubusercontent.com/chrismeunier/begone-swiss-spam-blacklist/main/begone_autoblock.xml",
+      "maintainer": "chrismeunier",
+      "approxNumbers": 900,
+      "thirdParty": true,
+      "caution": null
+    },
+    {
+      "id": "es-begone-spam",
+      "name": "Spain: spam and scam numbers",
+      "description": "Numbers reported for commercial spam, scams and phishing in Spain, collected from public spam-reporting sites.",
+      "region": "ES",
+      "url": "https://raw.githubusercontent.com/loft17/Begone-spam-list/main/Begone-All.xml",
+      "maintainer": "loft17",
+      "approxNumbers": 200000,
+      "thirdParty": true,
+      "caution": "The maintainer says it includes some legitimate telecom and delivery companies, and blocks some ranges resold for spam."
     }
   ]
 }
